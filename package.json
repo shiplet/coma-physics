@@ -11,6 +11,7 @@
     "email": "mnshiplet@gmail.com",
     "url": "michaelshiplet.com"
   },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shiplet/cyclone-js/issues"
   },
