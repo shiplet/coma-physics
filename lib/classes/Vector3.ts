@@ -140,13 +140,18 @@ export class Vector3 {
     return this.vectorProduct(v)
   }
 
-  getOrthonormal(b: Vector3): Vector3 {
-    const a = this.normalize()
-    let c = a.crossProduct(b)
-    if (c.squareMagnitude() === 0) {
+  /**
+   * Returns orthonormal vector of instance vector and argument vector
+   * or throws an error if vectors are parallel
+   * @param v {Vector3}
+   */
+  getOrthonormal(v: Vector3): Vector3 {
+    const vec1 = this.normalize()
+    let vec2 = vec1.crossProduct(v)
+    if (vec2.squareMagnitude() === 0) {
       throw new Error('vectors are parallel')
     }
-    c = c.normalize()
-    return c.crossProduct(a)
+    vec2 = vec2.normalize()
+    return vec2.crossProduct(vec1)
   }
 }
