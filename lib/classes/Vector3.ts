@@ -1,4 +1,8 @@
 export class Vector3 {
+  /**
+   * The x, y, z, pad coordinates of the Vector,
+   * representing a location in 3-dimensional space
+   */
   x: number
   y: number
   z: number
