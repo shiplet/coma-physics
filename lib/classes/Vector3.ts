@@ -42,11 +42,23 @@ export class Vector3 {
 	 * Returns a new, normalized instance of the current Vector3.
 	 */
 	normalize(): Vector3 {
-		const l = this.magnitude()
-		if (l > 0) {
-			return new Vector3((1 / l) * this.x, (1 / l) * this.y, (1 / l) * this.z)
+		const m = this.magnitude()
+		if (m > 0) {
+			return new Vector3((1 / m) * this.x, (1 / m) * this.y, (1 / m) * this.z)
 		} else {
 			return this
+		}
+	}
+
+	/**
+	 * Normalize and mutate the properties of the vector
+	 */
+	normalizeUpdate() {
+		const m = this.magnitude()
+		if (m > 0) {
+			this.x = (1 / m) * this.x
+			this.y = (1 / m) * this.y
+			this.z = (1 / m) * this.z
 		}
 	}
 
@@ -59,6 +71,16 @@ export class Vector3 {
 	}
 
 	/**
+	 * Multiply and mutate the properties of the vector
+	 * @param scale {Number}
+	 */
+	scalarMultiplyUpdate(scale: number) {
+		this.x *= scale
+		this.y *= scale
+		this.z *= scale
+	}
+
+	/**
 	 * Returns a new Vector3 resultant from adding the Vector3 provided in argument.
 	 * @param v {Vector3}
 	 */
@@ -67,16 +89,37 @@ export class Vector3 {
 	}
 
 	/**
+	 * Add and mutate properties of the vector
+	 * @param v {Vector3}
+	 */
+	addUpdate(v: Vector3) {
+		this.x += v.x
+		this.y += v.y
+		this.z += v.z
+	}
+
+	/**
 	 * Returns a new Vector3 resultant from adding and scaling vector based on provided arguments
 	 * @param v {Vector3}
 	 * @param scale {number}
 	 */
-	addScaled(v: Vector3, scale: number): Vector3 {
+	addScaledVector(v: Vector3, scale: number): Vector3 {
 		return new Vector3(
 			this.x + v.x * scale,
 			this.y + v.y * scale,
 			this.z + v.z * scale,
 		)
+	}
+
+	/**
+	 * Add, scale, and mutate the properties of the vector
+	 * @param v {Vector3}
+	 * @param scale {number}
+	 */
+	addScaledVectorUpdate(v: Vector3, scale: number) {
+		this.x += v.x * scale
+		this.y += v.y * scale
+		this.z += v.z * scale
 	}
 
 	/**
@@ -88,11 +131,21 @@ export class Vector3 {
 	}
 
 	/**
+	 * Subtract and mutate the properties of the vector
+	 * @param v {Vector3}
+	 */
+	subtractUpdate(v: Vector3) {
+		this.x -= v.x
+		this.y -= v.y
+		this.z -= v.z
+	}
+
+	/**
 	 * Returns a new Vector3 resultant from subtracting and scaling vector based on provided arguments
 	 * @param v {Vector3}
 	 * @param scale {number}
 	 */
-	subtractScaled(v: Vector3, scale: number): Vector3 {
+	subtractScaledVector(v: Vector3, scale: number): Vector3 {
 		return new Vector3(
 			this.x - v.x * scale,
 			this.y - v.y * scale,
@@ -101,11 +154,32 @@ export class Vector3 {
 	}
 
 	/**
+	 * Subtract, scale, and mutate the properties of the vector
+	 * @param v {Vector3}
+	 * @param scale {number}
+	 */
+	subtractScaledVectorUpdate(v: Vector3, scale: number) {
+		this.x -= v.x * scale
+		this.y -= v.y * scale
+		this.z -= v.z * scale
+	}
+
+	/**
 	 * Returns the component product of vector instance and argument vector
 	 * @param v {Vector3}
 	 */
 	componentProduct(v: Vector3): Vector3 {
 		return new Vector3(this.x * v.x, this.y * v.y, this.z * v.z)
+	}
+
+	/**
+	 * Apply component product and mutate properties of the vector
+	 * @param v {Vector3}
+	 */
+	componentProductUpdate(v: Vector3) {
+		this.x *= v.x
+		this.y *= v.y
+		this.z *= v.z
 	}
 
 	/**
@@ -134,6 +208,20 @@ export class Vector3 {
 			this.z * v.x - this.x * v.z,
 			this.x * v.y - this.y * v.x,
 		)
+	}
+
+	/**
+	 * Apply vector product and mutate values of the vector
+	 * @param v {Vector3}
+	 */
+	vectorProductUpdate(v: Vector3) {
+		const x = this.y * v.z - this.z * v.y
+		const y = this.z * v.x - this.x * v.z
+		const z = this.x * v.y - this.y * v.x
+
+		this.x = x
+		this.y = y
+		this.z = z
 	}
 
 	/**
