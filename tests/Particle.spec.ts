@@ -52,3 +52,17 @@ test('Particle.getInverseMass is correct', () => {
 	p.setInverseMass(0)
 	expect(p.getInverseMass()).toEqual(0)
 })
+
+test('Particle.integrate is correct', () => {
+	const p = getParticle()
+	const duration = 2
+	const velocityAdjustment = Math.pow(0.999, duration)
+	p.integrate(duration)
+	expect(p.position.x).toEqual(3)
+	expect(p.position.y).toEqual(0)
+	expect(p.position.z).toEqual(7)
+
+	expect(p.velocity.x).toEqual(1 * velocityAdjustment)
+	expect(p.velocity.y).toEqual(1 * velocityAdjustment)
+	expect(p.velocity.z).toEqual(0 * velocityAdjustment)
+})
