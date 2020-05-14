@@ -26,6 +26,11 @@ export class Particle {
 	damping: number
 
 	/**
+	 * Useful in determining acceleration and avoiding infinite masses
+	 */
+	protected inverseMass: number
+
+	/**
 	 * Construct a new particle
 	 * @param p {Vector3} position
 	 * @param v {Vector3} velocity
@@ -51,18 +56,35 @@ export class Particle {
 	}
 
 	/**
-	 * Useful in determining acceleration and avoiding infinite masses
+	 * Get mass or infinity
 	 */
-	protected inverseMass: number
-
-	setInverseMass(m: number) {
-		if (m > 0) {
-			this.inverseMass = 1 / m
+	getMass() {
+		if (this.inverseMass === 0) {
+			return Infinity
 		} else {
-			throw new Error(`mass must be a positive, non-zero value, got: ${m}`)
+			return 1 / this.inverseMass
 		}
 	}
 
+	/**
+	 * Set the inverse mass directly
+	 * @param m {number} mass
+	 */
+	setInverseMass(m: number) {
+		this.inverseMass = m
+	}
+
+	/**
+	 * Get the inverseMass
+	 */
+	getInverseMass() {
+		return this.inverseMass
+	}
+
+	/**
+	 * Integrate the particle over the specified direction
+	 * @param duration {number} seconds
+	 */
 	integrate(duration: number) {
 		if (this.inverseMass <= 0) {
 			return
