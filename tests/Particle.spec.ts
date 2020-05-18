@@ -15,6 +15,39 @@ test('Particle instantiates', () => {
 	expect(p).toBeInstanceOf(Particle)
 })
 
+describe('Particle getters & setters', () => {
+	const p = getParticle()
+	test('position', () => {
+		p.setPosition(0, 0, -1)
+		const position = p.getPosition()
+		expect(position.x).toEqual(0)
+		expect(position.y).toEqual(0)
+		expect(position.z).toEqual(-1)
+	})
+
+	test('velocity', () => {
+		p.setVelocity(0, 0, -1)
+		const velocity = p.getVelocity()
+		expect(velocity.x).toEqual(0)
+		expect(velocity.y).toEqual(0)
+		expect(velocity.z).toEqual(-1)
+	})
+
+	test('acceleration', () => {
+		p.setAcceleration(0, 0, -1)
+		const acceleration = p.getAcceleration()
+		expect(acceleration.x).toEqual(0)
+		expect(acceleration.y).toEqual(0)
+		expect(acceleration.z).toEqual(-1)
+	})
+
+	test('damping', () => {
+		const d = 0.99
+		p.setDamping(d)
+		expect(p.getDamping()).toEqual(d)
+	})
+})
+
 test('Particle.setMass is correct', () => {
 	const p = getParticle()
 	expect(() => {

@@ -44,6 +44,67 @@ export class Particle {
 		this.damping = d
 	}
 
+	// Getters & Setters
+	/**
+	 * Set position
+	 * @param p {Vector3}
+	 */
+	setPosition(x: number, y: number, z: number) {
+		this.position = new Vector3(x, y, z)
+	}
+
+	/**
+	 * Get position
+	 */
+	getPosition() {
+		return this.position
+	}
+
+	/**
+	 * Set velocity
+	 * @param v {Vector3}
+	 */
+	setVelocity(x: number, y: number, z: number) {
+		this.velocity = new Vector3(x, y, z)
+	}
+
+	/**
+	 * Get velocity
+	 */
+	getVelocity() {
+		return this.velocity
+	}
+
+	/**
+	 * Set acceleration
+	 * @param a {Vector3}
+	 */
+	setAcceleration(x: number, y: number, z: number) {
+		this.acceleration = new Vector3(x, y, z)
+	}
+
+	/**
+	 * Get acceleration
+	 */
+	getAcceleration() {
+		return this.acceleration
+	}
+
+	/**
+	 * Set damping
+	 * @param d {number}
+	 */
+	setDamping(d: number) {
+		this.damping = d
+	}
+
+	/**
+	 * Get damping
+	 */
+	getDamping() {
+		return this.damping
+	}
+
 	/**
 	 * The numerical mass of the particle
 	 */
