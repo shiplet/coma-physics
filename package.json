@@ -1,60 +1,60 @@
 {
-  "name": "cyclone-js",
-  "description": "JS port of cyclone-physics",
-  "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shiplet/cyclone-js.git"
-  },
-  "author": {
-    "name": "Shiplet",
-    "email": "mnshiplet@gmail.com",
-    "url": "michaelshiplet.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shiplet/cyclone-js/issues"
-  },
-  "files": [
-    "build"
-  ],
-  "engines": {
-    "node": ">=12.16.0 <13"
-  },
-  "engineStrict": true,
-  "config": {
-    "engine-strict": true
-  },
-  "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "build:watch": "yarn build --watch",
-    "build:typedoc": "typedoc --mode modules --tsconfig tsconfig.build.json --out ./typedoc/",
-    "format": "tslint -p tsconfig.base.json --fix --exclude \"node_modules/**\" \"**/*.ts\" && cross-env NODE_OPTIONS=\"--max_old_space_size=4096\" prettier --write \"**/*.{ts,js,json,yml,yaml}\"",
-    "lint": "tslint -p tsconfig.base.json -c tslint.json --exclude \"node_modules/**\" \"**/*.ts\"",
-    "clean": "rimraf build coverage typedoc",
-    "test": "jest",
-    "test:watch": "yarn test --watch",
-    "test:cov": "yarn test --coverage",
-    "test:debug": "node --inspect node_modules/jest/bin/jest.js --watch --runInBand",
-    "prepublish": "yarn clean && yarn build"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.1",
-    "cross-env": "^7.0.2",
-    "dotenv": "^8.2.0",
-    "husky": "^4.2.5",
-    "jest": "^25.3.0",
-    "lint-staged": "^10.1.3",
-    "prettier": "^2.0.4",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^25.3.1",
-    "ts-loader": "^7.0.0",
-    "ts-node": "^8.8.2",
-    "tslint": "^6.1.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typedoc": "^0.17.4",
-    "typescript": "^3.8.3"
-  }
+	"name": "coma-physics",
+	"description": "JS physics engine for the DOM",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shiplet/coma-physics.git"
+	},
+	"author": {
+		"name": "Shiplet",
+		"email": "mnshiplet@gmail.com",
+		"url": "https://michaelshiplet.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/shiplet/coma-physics/issues"
+	},
+	"files": [
+		"build"
+	],
+	"engines": {
+		"node": ">=12.16.0 <13"
+	},
+	"engineStrict": true,
+	"config": {
+		"engine-strict": true
+	},
+	"scripts": {
+		"build": "tsc --build tsconfig.build.json",
+		"build:watch": "yarn build --watch",
+		"build:typedoc": "typedoc --mode modules --tsconfig tsconfig.build.json --out ./typedoc/",
+		"format": "tslint -p tsconfig.base.json --fix --exclude \"node_modules/**\" \"**/*.ts\" && cross-env NODE_OPTIONS=\"--max_old_space_size=4096\" prettier --write \"**/*.{ts,js,json,yml,yaml}\"",
+		"lint": "tslint -p tsconfig.base.json -c tslint.json --exclude \"node_modules/**\" \"**/*.ts\"",
+		"clean": "rimraf build coverage typedoc",
+		"test": "jest",
+		"test:watch": "yarn test --watch",
+		"test:cov": "yarn test --coverage",
+		"test:debug": "node --inspect node_modules/jest/bin/jest.js --watch --runInBand",
+		"prepublish": "yarn clean && yarn build"
+	},
+	"devDependencies": {
+		"@types/dotenv": "^8.2.0",
+		"@types/jest": "^25.2.1",
+		"@types/node": "^13.11.1",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"husky": "^4.2.5",
+		"jest": "^25.3.0",
+		"lint-staged": "^10.1.3",
+		"prettier": "^2.0.4",
+		"rimraf": "^3.0.2",
+		"ts-jest": "^25.3.1",
+		"ts-loader": "^7.0.0",
+		"ts-node": "^8.8.2",
+		"tslint": "^6.1.1",
+		"tslint-config-prettier": "^1.18.0",
+		"typedoc": "^0.17.4",
+		"typescript": "^3.8.3"
+	}
 }
