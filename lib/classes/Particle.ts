@@ -1,6 +1,6 @@
-import { Vector3 } from './Vector3'
+import Vector3 from './Vector3'
 
-export class Particle {
+export default class Particle {
 	/**
 	 * The particle's linear position in 3-dimensional space
 	 */
@@ -37,7 +37,12 @@ export class Particle {
 	 * @param a {Vector3} acceleration
 	 * @param d {number} damping
 	 */
-	constructor(p: Vector3, v: Vector3, a: Vector3, d: number) {
+	constructor(
+		p: Vector3 = new Vector3(0, 0, 0),
+		v: Vector3 = new Vector3(0, 0, 0),
+		a: Vector3 = new Vector3(0, 0, 0),
+		d: number = 0.999,
+	) {
 		this.position = p
 		this.velocity = v
 		this.acceleration = a
@@ -157,15 +162,15 @@ export class Particle {
 			)
 		}
 
-		this.position.addScaledVectorUpdate(this.velocity, duration)
+		this.position?.addScaledVectorUpdate(this.velocity, duration)
 
 		const resultingAcc = this.acceleration
 
-		this.velocity.addScaledVectorUpdate(resultingAcc, duration)
+		this.velocity?.addScaledVectorUpdate(resultingAcc, duration)
 
 		const dampingOffset = Math.pow(this.damping, duration)
 
-		this.velocity.componentProductUpdate(
+		this.velocity?.componentProductUpdate(
 			new Vector3(dampingOffset, dampingOffset, dampingOffset),
 		)
 	}

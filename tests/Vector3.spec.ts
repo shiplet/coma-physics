@@ -1,4 +1,4 @@
-import { Vector3 } from '../lib/classes/Vector3'
+import Vector3 from '../lib/classes/Vector3'
 
 test('Vector3 instantiates', () => {
 	const value = 2

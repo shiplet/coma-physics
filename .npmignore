@@ -1,0 +1,14 @@
+tsconfig.json
+.idea
+.yo-repository
+lib
+node_modules
+tests
+.env
+.gitignore
+.huskyrc.json
+.lintstagedrc
+.npmignore
+.prettierignore
+.prettierrc
+jest.config.js

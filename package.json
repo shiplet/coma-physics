@@ -1,7 +1,9 @@
 {
 	"name": "coma-physics",
 	"description": "JS physics engine for the DOM",
-	"version": "1.0.0",
+	"version": "1.0.2",
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/shiplet/coma-physics.git"

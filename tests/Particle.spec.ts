@@ -1,5 +1,5 @@
-import { Particle } from '../lib/classes/Particle'
-import { Vector3 } from '../lib/classes/Vector3'
+import Particle from '../lib/classes/Particle'
+import Vector3 from '../lib/classes/Vector3'
 
 function getParticle() {
 	const position = new Vector3(1, 2, 3)
