@@ -1,7 +1,7 @@
 {
 	"name": "coma-physics",
 	"description": "JS physics engine for the DOM",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",
 	"repository": {
@@ -21,7 +21,7 @@
 		"build"
 	],
 	"engines": {
-		"node": ">=12.16.0 <13"
+		"node": ">=10 <13"
 	},
 	"engineStrict": true,
 	"config": {
